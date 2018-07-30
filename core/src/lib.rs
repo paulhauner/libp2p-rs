@@ -210,11 +210,16 @@ extern crate parking_lot;
 extern crate protobuf;
 #[macro_use]
 extern crate quick_error;
+extern crate rw_stream_sink;
 extern crate smallvec;
 extern crate tokio_io;
 
 #[cfg(test)]
 extern crate rand;
+#[cfg(test)]
+extern crate tokio_codec;
+#[cfg(test)]
+extern crate tokio_current_thread;
 
 /// Multi-address re-export.
 pub extern crate multiaddr;
@@ -223,6 +228,7 @@ mod connection_reuse;
 mod keys_proto;
 mod peer_id;
 mod public_key;
+mod unique;
 
 pub mod either;
 pub mod muxing;
@@ -237,4 +243,5 @@ pub use self::peer_id::PeerId;
 pub use self::public_key::PublicKey;
 pub use self::swarm::{swarm, SwarmController, SwarmFuture};
 pub use self::transport::{MuxedTransport, Transport};
+pub use self::unique::{UniqueConnec, UniqueConnecFuture, UniqueConnecState};
 pub use self::upgrade::{ConnectionUpgrade, Endpoint};
